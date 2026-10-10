@@ -1,0 +1,263 @@
+:root {
+  --cream: #F7F3EB;
+  --near-black: #10131A;
+  --orange: #E85D04;
+  --orange-dark: #C44C03;
+  --muted: #5C5A56;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--cream);
+  color: var(--near-black);
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+h1, h2, .display {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 80px 0 40px;
+}
+
+.hero h1 {
+  font-size: clamp(4.5rem, 12vw, 8rem);
+  margin-bottom: 32px;
+  color: var(--near-black);
+}
+
+.banner {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  border-radius: 12px;
+  margin: 0 auto 40px;
+  display: block;
+  box-shadow: 0 12px 40px rgba(16, 19, 26, 0.12);
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+button, .btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s, background 0.15s;
+}
+
+button:active, .btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--orange-dark);
+}
+
+.btn-secondary {
+  background: var(--near-black);
+  color: var(--cream);
+}
+
+.btn-secondary:hover {
+  background: #1c212c;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--near-black);
+  border: 2px solid var(--near-black);
+}
+
+.btn-outline:hover {
+  background: var(--near-black);
+  color: var(--cream);
+}
+
+/* Sections */
+section {
+  padding: 72px 0;
+  border-top: 1px solid rgba(16, 19, 26, 0.08);
+}
+
+section h2 {
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.story p {
+  font-size: 1.15rem;
+  margin-bottom: 1.2em;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.story p:last-child {
+  margin-bottom: 0;
+}
+
+/* Contract */
+.contract-box {
+  background: white;
+  border: 2px solid var(--near-black);
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  margin: 32px auto;
+  max-width: 640px;
+}
+
+.network {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.ca-display {
+  font-family: 'Inter', monospace;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 600;
+  word-break: break-all;
+  background: var(--cream);
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+  user-select: all;
+}
+
+.copy-status {
+  font-size: 14px;
+  color: var(--orange);
+  height: 20px;
+  margin-top: 8px;
+}
+
+/* Steps */
+.steps {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+}
+
+.step-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  color: var(--orange);
+  min-width: 48px;
+  line-height: 1;
+}
+
+.step p {
+  margin: 0;
+  padding-top: 6px;
+}
+
+.warning {
+  background: #FFF4E6;
+  border-left: 4px solid var(--orange);
+  padding: 16px 20px;
+  margin-top: 32px;
+  font-weight: 500;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Community */
+.community-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+/* Disclaimer */
+.disclaimer {
+  background: var(--near-black);
+  color: var(--cream);
+  text-align: center;
+  padding: 64px 0;
+  font-size: 15px;
+}
+
+.disclaimer p {
+  max-width: 640px;
+  margin: 0 auto 12px;
+  opacity: 0.9;
+}
+
+.disclaimer p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero {
+    padding: 48px 0 24px;
+  }
+  .cta-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cta-row .btn, .cta-row button {
+    width: 100%;
+    max-width: 280px;
+  }
+  section {
+    padding: 48px 0;
+  }
+}
