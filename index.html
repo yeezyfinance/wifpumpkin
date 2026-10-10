@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WIFPUMPKIN — Same Dog. New Season.</title>
-  <meta name="description" content="DogWIFpumpkin ($WIFPUMPKIN). Same Dog. New Season. 100% of creator fees for holders. Community culture token on Solana.">
+  <meta name="description" content="DogWIFpumpkin ($WIFPUMPKIN). Same Dog. New Season. 100% of creator fees for holders.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
   <nav>
     <div class="logo">WIFPUMPKIN</div>
     <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
+      <li><a href="#home" class="active">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#rewards">Tokenomics</a></li>
       <li><a href="#community">Community</a></li>
@@ -24,17 +24,20 @@
   </nav>
 
   <header class="hero" id="home">
-    <div class="container">
-      <p class="tagline">Same Dog. New Season.</p>
-      <h1>WIF<br>PUMPKIN</h1>
-      <p class="sub">The meme you love, with a pumpkin twist. Join the next chapter.</p>
-      <img src="banner.jpg" alt="Dog with pumpkin" class="banner">
+    <div class="hero-bg" style="background-image: url('hero.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="brush">WIF<br>PUMPKIN</h1>
+      <p class="tagline">SAME DOG. NEW SEASON.</p>
+      <p class="sub">The meme you love, with a pumpkin twist.<br>Join the next chapter.</p>
       <div class="cta-row">
-        <button data-copy class="btn btn-primary">Copy Contract</button>
+        <a data-dex href="https://dexscreener.com/solana" class="btn btn-primary" target="_blank" rel="noopener">Buy Now</a>
         <a data-dex href="https://dexscreener.com/solana" class="btn btn-secondary" target="_blank" rel="noopener">View Chart</a>
-        <a href="https://t.me/dogwifpumpkinonsol" class="btn btn-outline" target="_blank" rel="noopener">Telegram</a>
       </div>
-      <div id="copy-status" class="copy-status"></div>
+      <div class="hero-copy">
+        <button data-copy class="btn btn-outline">Copy Contract</button>
+        <span id="copy-status" class="copy-status"></span>
+      </div>
     </div>
   </header>
 
@@ -61,12 +64,14 @@
     </div>
   </div>
 
-  <section class="story" id="about">
+  <section class="about" id="about">
     <div class="container">
-      <h2>About WIFPUMPKIN</h2>
-      <p>It started with a dog and a hat. Dogwifhat became one of the most recognizable memes in crypto because the idea was simple: a dog, a hat, a community.</p>
-      <p>A new season has arrived. The iconic dog traded its hat for a pumpkin. DogWIFpumpkin is not just another dog meme. It is built around one idea: the community should benefit from the creator fees the project generates.</p>
-      <p>With a 3% creator fee and 100% of those fees allocated toward holder rewards in Dogwifhat ($WIF), the project connects its community with the token that inspired it. The hat started the movement. The pumpkin begins a new chapter.</p>
+      <h2>About<br>WIFPUMPKIN</h2>
+      <div class="about-text">
+        <p>It started with a dog and a hat. Dogwifhat became one of the most recognizable memes in crypto because the idea was simple: a dog, a hat, a community.</p>
+        <p>A new season has arrived. The iconic dog traded its hat for a pumpkin. DogWIFpumpkin is not just another dog meme. It is built around one idea: the community should benefit from the creator fees the project generates.</p>
+        <p>With a 3% creator fee and 100% of those fees allocated toward holder rewards in Dogwifhat ($WIF), the project connects its community with the token that inspired it. The hat started the movement. The pumpkin begins a new chapter.</p>
+      </div>
     </div>
   </section>
 
@@ -124,16 +129,14 @@
           <p>Swap only through the approved venue linked here.</p>
         </div>
       </div>
-      <div class="warning">
-        Never accept contract addresses through direct messages.
-      </div>
+      <div class="warning">Never accept contract addresses through direct messages.</div>
     </div>
   </section>
 
   <section class="community" id="community">
     <div class="container">
       <h2>Join the Community</h2>
-      <p style="text-align:center; max-width:640px; margin:0 auto 32px; color: var(--muted);">DogWIFpumpkin is more than a token. It is a character, a meme, and a community. Original content, artwork, competitions, seasonal events, and storytelling.</p>
+      <p style="text-align:center; max-width:640px; margin:0 auto 32px; color: var(--muted);">DogWIFpumpkin is more than a token. It is a character, a meme, and a community.</p>
       <div class="community-links">
         <a href="https://x.com/wifpumpkinonsol" class="btn btn-secondary" target="_blank" rel="noopener">X</a>
         <a href="https://t.me/dogwifpumpkinonsol" class="btn btn-secondary" target="_blank" rel="noopener">Telegram</a>
@@ -145,7 +148,7 @@
     <div class="container">
       <p>Community culture token. No promise of profit. No fixed or guaranteed rewards.</p>
       <p>Not officially affiliated with the dogwifhat Foundation or dogwifhat. Independent project inspired by the original meme.</p>
-      <p style="margin-top:20px; opacity:0.5;">It's pumpkin time.</p>
+      <p style="margin-top:20px; opacity:0.5; font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.05em;">It's pumpkin time.</p>
     </div>
   </footer>
 
