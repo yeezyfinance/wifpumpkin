@@ -1,49 +1,57 @@
-const CA_FILE = 'ca.txt';
-let contractAddress = null;
+document.addEventListener('DOMContentLoaded', async () => {
+  let ca = 'YOUR_SOLANA_CONTRACT_ADDRESS_HERE';
 
-async function loadContract() {
   try {
-    const res = await fetch(CA_FILE);
-    if (!res.ok) throw new Error('ca.txt not found');
-    const ca = (await res.text()).trim();
-    const display = document.getElementById('ca-display');
-    if (!ca || ca.includes('PLACEHOLDER')) {
-      display.textContent = 'Contract address pending';
+    const response = await fetch('ca.txt');
+    if (response.ok) {
+      ca = (await response.text()).trim();
+    }
+  } catch (e) {
+    console.warn('Could not load ca.txt, using placeholder');
+  }
+
+  const caDisplay = document.getElementById('ca-display');
+  if (caDisplay) caDisplay.textContent = ca || 'Contract address not set';
+
+  const dexLink = document.getElementById('dex-link');
+  const viewChart = document.getElementById('view-chart');
+  const buyNow = document.getElementById('buy-now');
+
+  if (ca && ca !== 'YOUR_SOLANA_CONTRACT_ADDRESS_HERE') {
+    const dexUrl = `https://dexscreener.com/solana/${ca}`;
+    if (dexLink) dexLink.href = dexUrl;
+    if (viewChart) viewChart.href = dexUrl;
+    // Example Jupiter buy link
+    if (buyNow) buyNow.href = `https://jup.ag/swap/SOL-${ca}`;
+  } else {
+    if (dexLink) dexLink.href = 'https://dexscreener.com/solana';
+    if (viewChart) viewChart.href = 'https://dexscreener.com/solana';
+  }
+
+  function copyCA() {
+    if (!ca || ca === 'YOUR_SOLANA_CONTRACT_ADDRESS_HERE') {
+      alert('Contract address not yet set. Edit ca.txt');
       return;
     }
-    display.textContent = ca;
-    contractAddress = ca;
-    // Update all Dexscreener links
-    document.querySelectorAll('[data-dex]').forEach(el => {
-      el.href = `https://dexscreener.com/solana/${ca}`;
-    });
-  } catch (e) {
-    document.getElementById('ca-display').textContent = 'Contract address unavailable';
+    navigator.clipboard.writeText(ca).then(() => {
+      const btn = document.getElementById('copy-contract');
+      const orig = btn.textContent;
+      btn.textContent = 'COPIED!';
+      setTimeout(() => btn.textContent = orig, 2000);
+    }).catch(() => alert('Copy failed'));
   }
-}
 
-function setupCopyButtons() {
-  document.querySelectorAll('[data-copy]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const status = document.getElementById('copy-status');
-      if (!contractAddress) {
-        if (status) status.textContent = 'No contract to copy yet';
-        return;
-      }
-      try {
-        await navigator.clipboard.writeText(contractAddress);
-        if (status) {
-          status.textContent = 'Copied';
-          setTimeout(() => { status.textContent = ''; }, 2000);
-        }
-      } catch {
-        if (status) status.textContent = 'Copy failed — select and copy manually';
+  document.getElementById('copy-contract')?.addEventListener('click', copyCA);
+  document.getElementById('copy-ca-btn')?.addEventListener('click', copyCA);
+
+  // Smooth scroll for nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        e.preventDefault();
+        document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
       }
     });
   });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  loadContract();
-  setupCopyButtons();
 });
